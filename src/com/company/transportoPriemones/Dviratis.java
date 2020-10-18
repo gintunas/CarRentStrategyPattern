@@ -8,7 +8,7 @@ public class Dviratis implements TransportoPasirinkimoStrategija {
     private int priemoneId;
 
     @Override
-    public String  pasirinktiTransportoPriemone(int priemoneId) {
+    public String pasirinktiTransportoPriemone(int priemoneId) {
         //if(priemoneID nepasirinktas) pasirinkti
         this.priemoneId = priemoneId;
         return "Rambynas 300";

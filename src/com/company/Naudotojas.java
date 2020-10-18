@@ -11,7 +11,7 @@ public class Naudotojas {
     private final List<Pavezimas> pavezimuSarasas;
     private Pavezimas einamasPavezimas;
     private Kelione einamaKelione;
-    private BigDecimal kaina;
+    private BigDecimal skola;
 
     public Naudotojas(List<Kelione> kelioniuSarasas, List<Pavezimas> pavezimuSarasas) {
         this.kelioniuSarasas = kelioniuSarasas;
@@ -33,19 +33,19 @@ public class Naudotojas {
     }
 
     public void uzbaigtiKelione(double atstumas, double laikas, String atvykimoTaskas) {
-        kaina = einamaKelione.uzbaigtiKelione(atstumas, laikas, atvykimoTaskas);
-        sumoketiUzKelione(kaina);
+        skola = einamaKelione.uzbaigtiKelione(atstumas, laikas, atvykimoTaskas);
+        sumoketi(skola);
     }
 
     public void uzbaigtiKelione(double atstumas, Intervalas intervalas) {
-        kaina = einamaKelione.uzbaigtiNuoma(atstumas, intervalas);
-        sumoketiUzKelione(kaina);
+        skola = einamaKelione.uzbaigtiNuoma(atstumas, intervalas);
+        sumoketi(skola);
     }
 
-    private void sumoketiUzKelione(BigDecimal kaina) {
+    private void sumoketi(BigDecimal kaina) {
         new MokejimoPlatforma.sumoketi(kaina);
         einamaKelione = null;
-        this.kaina = null;
+        this.skola = null;
     }
 
     /**
@@ -62,9 +62,9 @@ public class Naudotojas {
     }
 
     public void uzbaigtiPavezima(float atstumas, float laikas, String atvykimoTaskas) {
-        kaina = einamasPavezimas.uzbaigtiPavezima(atstumas, laikas, atvykimoTaskas);
-        sumoketiUzKelione(kaina);
+        skola = einamasPavezimas.uzbaigtiPavezima(atstumas, laikas, atvykimoTaskas);
+        sumoketi(skola);
         einamasPavezimas = null;
-        kaina = null;
+        skola = null;
     }
 }

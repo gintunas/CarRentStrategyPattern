@@ -10,7 +10,7 @@ import com.company.strategijos.KainosSkaiciavimoStrategija;
 import java.math.BigDecimal;
 
 public class Pavezimas {
-    private final KainosSkaiciavimoStrategija kainosSkaiciavimas;
+    private final KainosSkaiciavimoStrategija kss;
     private final Ikainiai ikainiai;
     private final int vairuotojasId;
     private final String vairuotojoVardas;
@@ -25,9 +25,9 @@ public class Pavezimas {
             throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.");
 
         if (kainosTipas == KainosTipas.STANDARTINE) {
-            kainosSkaiciavimas = new StandartinesKainosSkaiciavimas();
+            kss = new StandartinesKainosSkaiciavimas();
         } else if (kainosTipas == KainosTipas.KARANTINO) {
-            kainosSkaiciavimas = new KarantinoKainosSkaiciavimas();
+            kss = new KarantinoKainosSkaiciavimas();
         } else throw new IllegalArgumentException("Nepavyko nustatyti kainos skaiciavimo tipo.");
 
         this.ikainiai = nustatytiIkainius();
@@ -52,8 +52,8 @@ public class Pavezimas {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = kainosSkaiciavimas.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
-        sumineKaina = kainosSkaiciavimas.koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
+        BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
+        sumineKaina = kss.koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
         System.out.println("Ačiū, kad važiavote su " + vairuotojoVardas + ".");
         this.kaina = sumineKaina;
         this.atstumas = atstumas;
