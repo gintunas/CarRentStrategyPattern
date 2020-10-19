@@ -1,6 +1,5 @@
-package com.company.transportoPriemones;
+package com.company.keliones;
 
-import com.company.Kelione;
 import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 

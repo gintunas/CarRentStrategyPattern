@@ -1,17 +1,17 @@
-package com.company.transportoPriemones;
+package com.company.keliones;
 
 import com.company.enums.Intervalas;
 import com.company.kainosSkaiciavimas.Ikainiai;
-import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
+import com.company.kainosSkaiciavimas.KarantinoKainosSkaiciavimas;
 
 import java.math.BigDecimal;
 
-public class DviraciuStandartineKaina extends KelioneDviraciu {
-    private final StandartinesKainosSkaiciavimas kainosSkaiciavimas;
+public class DviraciuKarantinoKaina extends KelioneDviraciu {
+    private final KarantinoKainosSkaiciavimas kainosSkaiciavimas;
 
-    public DviraciuStandartineKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
+    public DviraciuKarantinoKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
         super(priemoneId, isvykimoTaskas);
-        kainosSkaiciavimas = new StandartinesKainosSkaiciavimas();
+        kainosSkaiciavimas = new KarantinoKainosSkaiciavimas();
     }
 
     @Override

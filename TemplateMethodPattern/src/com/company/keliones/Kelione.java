@@ -1,4 +1,4 @@
-package com.company;
+package com.company.keliones;
 
 import com.company.enums.Intervalas;
 import com.company.kainosSkaiciavimas.Ikainiai;
@@ -95,7 +95,7 @@ public abstract class Kelione {
 
     protected abstract void paliktiTransportoPriemone();
 
-    protected abstract void pranestiApieNetiketuma();
+    public abstract void pranestiApieNetiketuma();
 
     protected abstract Ikainiai gautiTransportoPriemonesIkainius();
 

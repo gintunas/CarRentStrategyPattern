@@ -1,4 +1,4 @@
-package com.company.transportoPriemones;
+package com.company.keliones;
 
 import com.company.enums.Intervalas;
 import com.company.kainosSkaiciavimas.Ikainiai;

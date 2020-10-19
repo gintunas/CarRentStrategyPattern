@@ -1,32 +1,17 @@
-package com.company.transportoPriemones;
+package com.company.keliones;
 
 import com.company.enums.Intervalas;
 import com.company.kainosSkaiciavimas.Ikainiai;
-import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
 
 import java.math.BigDecimal;
 
-public class EkonomiskuAutomobiliuStandartineKaina extends KelioneEkonomiskuAutomobiliu {
+public class DviraciuStandartineKaina extends KelioneDviraciu {
     private final StandartinesKainosSkaiciavimas kainosSkaiciavimas;
 
-    public EkonomiskuAutomobiliuStandartineKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
+    public DviraciuStandartineKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
         super(priemoneId, isvykimoTaskas);
         kainosSkaiciavimas = new StandartinesKainosSkaiciavimas();
-    }
-
-    @Override
-    public Ikainiai gautiTransportoPriemonesIkainius() {
-        return new IkainiaiBuilder()
-                .setPradineKaina(100)
-                .setKilometroKaina(30)
-                .setMinutesKaina(14)
-                .setVirsytoLaikoKaina(6)
-                .setVirsytoAtstumoKaina(5)
-                .setParosKaina(1500)
-                .setSavaitesKaina(7500)
-                .setMenesioKaina(30000)
-                .createIkainiai();
     }
 
     @Override

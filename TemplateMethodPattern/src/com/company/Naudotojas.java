@@ -2,7 +2,10 @@ package com.company;
 
 import com.company.enums.Intervalas;
 import com.company.enums.KainosTipas;
-import com.company.transportoPriemones.*;
+import com.company.keliones.*;
+import com.company.pavezimai.Pavezimas;
+import com.company.pavezimai.PavezimasKarantinoKaina;
+import com.company.pavezimai.PavezimasStandartineKaina;
 
 import java.math.BigDecimal;
 import java.util.List;

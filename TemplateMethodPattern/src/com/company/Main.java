@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.enums.Intervalas;
 import com.company.enums.KainosTipas;
+import com.company.keliones.Kelione;
 
 import java.util.ArrayList;
 

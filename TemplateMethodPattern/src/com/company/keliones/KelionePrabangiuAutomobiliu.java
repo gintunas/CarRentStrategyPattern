@@ -1,13 +1,12 @@
-package com.company.transportoPriemones;
+package com.company.keliones;
 
-import com.company.Kelione;
 import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 
-public abstract class KelioneDviraciu extends Kelione {
+public abstract class KelionePrabangiuAutomobiliu extends Kelione {
     private int priemoneId;
 
-    public KelioneDviraciu(int priemoneId, String isvykimoTaskas) throws UnsupportedOperationException {
+    public KelionePrabangiuAutomobiliu(int priemoneId, String isvykimoTaskas) throws UnsupportedOperationException {
         super(priemoneId, isvykimoTaskas);
 
         transportoPriemonesPavadinimas = pasirinktiTransportoPriemone(priemoneId);
@@ -21,32 +20,32 @@ public abstract class KelioneDviraciu extends Kelione {
     public String pasirinktiTransportoPriemone(int priemoneId) {
         //if(priemoneID nepasirinktas) pasirinkti
         this.priemoneId = priemoneId;
-        return "Rambynas 300";
+        return "Lexus RC 300";
         //else return null;
     }
 
     @Override
     public Ikainiai gautiTransportoPriemonesIkainius() {
         return new IkainiaiBuilder()
-                .setPradineKaina(10)
-                .setKilometroKaina(0)
-                .setMinutesKaina(0)
-                .setVirsytoLaikoKaina(20)
-                .setVirsytoAtstumoKaina(0)
-                .setParosKaina(300)
-                .setSavaitesKaina(1500)
-                .setMenesioKaina(3000)
+                .setPradineKaina(300)
+                .setKilometroKaina(50)
+                .setMinutesKaina(20)
+                .setVirsytoLaikoKaina(10)
+                .setVirsytoAtstumoKaina(10)
+                .setParosKaina(4000)
+                .setSavaitesKaina(20000)
+                .setMenesioKaina(400000)
                 .createIkainiai();
     }
 
     @Override
     public void paliktiTransportoPriemone() {
         //palikti priemoneId
-        System.out.println("Paliktas Rambynas 300, id: " + priemoneId);
+        System.out.println("Paliktas Lexus RC 300, id: " + priemoneId);
     }
 
     @Override
     public void pranestiApieNetiketuma() {
-        System.out.println("Dekojame uz pranesta dviracio Rambynas 300, id: " + priemoneId + " apgadinima.");
+        System.out.println("Dekojame uz pranesta Lexus RC 300, id: " + priemoneId + " apgadinima.");
     }
 }

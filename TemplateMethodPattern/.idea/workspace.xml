@@ -10,12 +10,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Added full implementation of pattern">
+    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Some refactoring to match UML">
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/Code.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Kelione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/Kelione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Naudotojas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Naudotojas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/KelionePigiuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/transportoPriemones/KelioneEkonomiskuAutomobiliu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/PigiuAutomobiliuKarantinoKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/transportoPriemones/EkonomiskuAutomobiliuKarantinoKaina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/PigiuAutomobiliuStandartineKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/transportoPriemones/EkonomiskuAutomobiliuStandartineKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Pavezimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pavezimai/Pavezimas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/DviraciuKarantinoKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/DviraciuKarantinoKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/DviraciuStandartineKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/DviraciuStandartineKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/EkonomiskuAutomobiliuKarantinoKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuKarantinoKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/EkonomiskuAutomobiliuStandartineKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuStandartineKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/KelioneDviraciu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelioneDviraciu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/KelioneEkonomiskuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelioneEkonomiskuAutomobiliu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/KelionePrabangiuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelionePrabangiuAutomobiliu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/PrabangiuAutomobiliuKarantinoKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/PrabangiuAutomobiliuKarantinoKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/transportoPriemones/PrabangiuAutomobiliuStandartineKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/PrabangiuAutomobiliuStandartineKaina.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +127,8 @@
     </ignored-roots>
     <MESSAGE value="Creating git repository." />
     <MESSAGE value="Added full implementation of pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added full implementation of pattern" />
+    <MESSAGE value="Some refactoring to match UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some refactoring to match UML" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1603043353483">
@@ -194,10 +207,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="289" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603043652153" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603133135562">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603137328374">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603133135562" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603137328374" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602781359127">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

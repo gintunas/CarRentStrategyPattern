@@ -1,4 +1,4 @@
-package com.company;
+package com.company.pavezimai;
 
 import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
