@@ -7,10 +7,10 @@ import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
 
 import java.math.BigDecimal;
 
-public class PigiuAutomobiliuStandartineKaina extends KelionePigiuAutomobiliu {
+public class EkonomiskuAutomobiliuStandartineKaina extends KelioneEkonomiskuAutomobiliu {
     private final StandartinesKainosSkaiciavimas kainosSkaiciavimas;
 
-    public PigiuAutomobiliuStandartineKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
+    public EkonomiskuAutomobiliuStandartineKaina(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
         super(priemoneId, isvykimoTaskas);
         kainosSkaiciavimas = new StandartinesKainosSkaiciavimas();
     }

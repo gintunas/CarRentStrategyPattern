@@ -4,10 +4,10 @@ import com.company.Kelione;
 import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 
-public abstract class KelionePigiuAutomobiliu extends Kelione {
+public abstract class KelioneEkonomiskuAutomobiliu extends Kelione {
     private int priemoneId;
 
-    public KelionePigiuAutomobiliu(int priemoneId, String isvykimoTaskas) {
+    public KelioneEkonomiskuAutomobiliu(int priemoneId, String isvykimoTaskas) {
         super(priemoneId, isvykimoTaskas);
 
         transportoPriemonesPavadinimas = pasirinktiTransportoPriemone(priemoneId);

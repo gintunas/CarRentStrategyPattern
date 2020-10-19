@@ -34,8 +34,8 @@ public class Naudotojas {
             else kelione = new DviraciuStandartineKaina(priemoneId, isvykimoTaskas);
         } else if (priemoneId < 20000){
             if (kainosTipas.equals(KainosTipas.KARANTINO))
-                kelione = new PigiuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas);
-            else kelione = new PigiuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas);
+                kelione = new EkonomiskuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas);
+            else kelione = new EkonomiskuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas);
         }
         else if (priemoneId < 30000){
             if (kainosTipas.equals(KainosTipas.KARANTINO))
