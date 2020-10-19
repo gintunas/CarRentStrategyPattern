@@ -7,11 +7,8 @@ import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 public abstract class KelionePrabangiuAutomobiliu extends Kelione {
     private int priemoneId;
 
-    public KelionePrabangiuAutomobiliu(int priemoneId, String isvykimoTaskas) throws IllegalArgumentException, UnsupportedOperationException {
+    public KelionePrabangiuAutomobiliu(int priemoneId, String isvykimoTaskas) throws UnsupportedOperationException {
         super(priemoneId, isvykimoTaskas);
-
-        if (!((priemoneId > 20000) && (priemoneId < 30000)))
-            throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.");
 
         transportoPriemonesPavadinimas = pasirinktiTransportoPriemone(priemoneId);
         if (transportoPriemonesPavadinimas.isEmpty())

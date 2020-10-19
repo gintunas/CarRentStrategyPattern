@@ -1,7 +1,6 @@
 package com.company.kainosSkaiciavimas;
 
 import com.company.enums.Intervalas;
-import com.company.strategijos.KainosSkaiciavimoStrategija;
 
 import java.math.BigDecimal;
 

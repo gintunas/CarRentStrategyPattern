@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.enums.Intervalas;
 import com.company.enums.KainosTipas;
+import com.company.transportoPriemones.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -25,7 +26,25 @@ public class Naudotojas {
      * @return Pradeta kelione.
      */
     public Kelione pradetiKelione(int priemoneId, String isvykimoTaskas, KainosTipas kainosTipas) {
-        Kelione kelione = new Kelione(priemoneId, isvykimoTaskas);
+        Kelione kelione;
+
+        if (priemoneId < 10000) {
+            if (kainosTipas.equals(KainosTipas.KARANTINO))
+                kelione = new DviraciuKarantinoKaina(priemoneId, isvykimoTaskas);
+            else kelione = new DviraciuStandartineKaina(priemoneId, isvykimoTaskas);
+        } else if (priemoneId < 20000){
+            if (kainosTipas.equals(KainosTipas.KARANTINO))
+                kelione = new PigiuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas);
+            else kelione = new PigiuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas);
+        }
+        else if (priemoneId < 30000){
+            if (kainosTipas.equals(KainosTipas.KARANTINO))
+                kelione = new PrabangiuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas);
+            else kelione = new PrabangiuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas);
+        }
+        else throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.");
+
+
         kelioniuSarasas.add(kelione);
         einamaKelione = kelione;
         System.out.println("Kelione su priemone id: " + priemoneId + " pradeta.");
@@ -55,7 +74,10 @@ public class Naudotojas {
      * @return Pradeta pavezimas.
      */
     public Pavezimas pradetiPavezima(int vairuotojasId, String isvykimoTaskas, KainosTipas kainosTipas) {
-        Pavezimas pavezimas = new Pavezimas(vairuotojasId, isvykimoTaskas, kainosTipas);
+        Pavezimas pavezimas;
+        if (kainosTipas.equals(KainosTipas.STANDARTINE))
+            pavezimas = new PavezimasStandartineKaina(vairuotojasId, isvykimoTaskas);
+        else pavezimas = new PavezimasKarantinoKaina(vairuotojasId, isvykimoTaskas);
         pavezimuSarasas.add(pavezimas);
         einamasPavezimas = pavezimas;
         return pavezimas;
