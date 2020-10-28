@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TemplateMethod" />
+        <module name="Mixins" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="TemplateMethod" target="1.8" />
+      <module name="Mixins" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
