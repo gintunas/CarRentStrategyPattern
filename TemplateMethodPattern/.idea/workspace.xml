@@ -10,55 +10,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Some refactoring to match UML">
+    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Refactored whole project to scala, use mixins, add files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TemplateMethod.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TemplateMethod.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MokejimoPlatforma.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Naudotojas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/enums/Intervalas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/enums/KainosTipas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/kainosSkaiciavimas/Ikainiai.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/kainosSkaiciavimas/IkainiaiBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/kainosSkaiciavimas/KarantinoKainosSkaiciavimas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/kainosSkaiciavimas/StandartinesKainosSkaiciavimas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/DviraciuKarantinoKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/DviraciuStandartineKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuKarantinoKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuStandartineKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/Kelione.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelioneDviraciu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelioneEkonomiskuAutomobiliu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelionePrabangiuAutomobiliu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/PrabangiuAutomobiliuKarantinoKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/PrabangiuAutomobiliuStandartineKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/pavezimai/Pavezimas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/pavezimai/PavezimasKarantinoKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/pavezimai/PavezimasStandartineKaina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Kelione.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/MokejimoPlatforma$sumoketi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/MokejimoPlatforma.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/MokejimoPlatforma.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Naudotojas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Naudotojas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Pavezimas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/PavezimasKarantinoKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/PavezimasStandartineKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/enums/Intervalas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/enums/Intervalas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/enums/KainosTipas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/enums/KainosTipas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/Ikainiai.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/Ikainiai.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/IkainiaiBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/KarantinoKainosSkaiciavimas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/KarantinoKainosSkaiciavimas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/StandartinesKainosSkaiciavimas$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/StandartinesKainosSkaiciavimas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/kainosSkaiciavimas/StandartinesKainosSkaiciavimas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/DviraciuKarantinoKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/DviraciuStandartineKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/KelioneDviraciu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/KelionePigiuAutomobiliu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/KelionePrabangiuAutomobiliu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/PigiuAutomobiliuKarantinoKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/PigiuAutomobiliuStandartineKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/PrabangiuAutomobiliuKarantinoKaina.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/transportoPriemones/PrabangiuAutomobiliuStandartineKaina.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +126,9 @@
     <MESSAGE value="Creating git repository." />
     <MESSAGE value="Added full implementation of pattern" />
     <MESSAGE value="Some refactoring to match UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some refactoring to match UML" />
+    <MESSAGE value="Refactored whole project to scala, used mixins" />
+    <MESSAGE value="Refactored whole project to scala, use mixins, add files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored whole project to scala, use mixins, add files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1603043353483">
@@ -228,22 +183,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="647" y="310" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1603043757295" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1603917069710">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1603917471468">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603917069710" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1603917069710">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603917471468" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1603917471468">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603917069710" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1603917069710">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603917471468" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1603917471467">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603917069710" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1603917069710">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603917471467" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1603917471468">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603917069710" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603917471468" />
     <state x="392" y="61" key="Maven.ArtifactSearchDialog" timestamp="1602751212373">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -252,10 +207,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="46" y="39" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603885234323" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603137328374">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603917456995">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603137328374" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603917456995" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602781359127">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
