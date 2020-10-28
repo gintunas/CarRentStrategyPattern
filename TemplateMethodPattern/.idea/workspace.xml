@@ -10,9 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Refactored whole project to scala, use mixins, add files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Add one file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +126,8 @@
     <MESSAGE value="Some refactoring to match UML" />
     <MESSAGE value="Refactored whole project to scala, used mixins" />
     <MESSAGE value="Refactored whole project to scala, use mixins, add files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored whole project to scala, use mixins, add files" />
+    <MESSAGE value="Add one file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add one file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1603043353483">
@@ -207,10 +206,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="46" y="39" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603885234323" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603917456995">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603917554778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603917456995" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603917554778" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602781359127">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
