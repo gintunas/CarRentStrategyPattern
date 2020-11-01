@@ -6,12 +6,11 @@ import com.company.enums.Intervalas
 
 trait StandartinesKainosSkaiciavimas {
   def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal = {
-    var sumineKaina: BigDecimal = null
     val atstumasDecimal = new BigDecimal(atstumas).divide(new BigDecimal(1000), RoundingMode.HALF_EVEN)
     val laikasDecimal = new BigDecimal(laikas)
     val virsytasAtstumas = atstumasDecimal.subtract(new BigDecimal(25))
     val virsytasLaikas = laikasDecimal.subtract(new BigDecimal(30))
-    sumineKaina = ikainiai.pradineKaina.add(ikainiai.kilometroKaina.multiply(atstumasDecimal))
+    var sumineKaina: BigDecimal = ikainiai.pradineKaina.add(ikainiai.kilometroKaina.multiply(atstumasDecimal))
     if (virsytasAtstumas.signum == 1) sumineKaina = sumineKaina.add(virsytasAtstumas.multiply(ikainiai.virsytoAtstumoKaina))
     sumineKaina = sumineKaina.add(ikainiai.minutesKaina.multiply(laikasDecimal))
     if (virsytasLaikas.signum == 1) sumineKaina = sumineKaina.add(virsytasLaikas.multiply(ikainiai.virsytoLaikoKaina))

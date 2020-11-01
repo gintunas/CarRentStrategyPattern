@@ -4,15 +4,16 @@ import java.math.BigDecimal
 
 import com.company.MokejimoPlatforma.{sumoketi => sumoketiPerPlatforma}
 import com.company.enums.{Intervalas, KainosTipas}
+import com.company.kainosSkaiciavimas.{KarantinoKainosSkaiciavimas, StandartinesKainosSkaiciavimas}
 import com.company.keliones._
-import com.company.pavezimai.{Pavezimas, PavezimasKarantinoKaina, PavezimasStandartineKaina}
+import com.company.pavezimai.Pavezimas
 
 import scala.collection.mutable.ListBuffer
 
 class Naudotojas(val kelioniuSarasas: ListBuffer[Kelione], val pavezimuSarasas: ListBuffer[Pavezimas]) {
-  private var einamasPavezimas: Pavezimas = _
-  private var einamaKelione: Kelione = _
-  private var skola: BigDecimal = _
+  var einamasPavezimas: Pavezimas = _
+  var einamaKelione: Kelione = _
+  var skola: BigDecimal = _
 
   /**
    * @param priemoneId     x<10000 - dviratis; 10000<x<20000 - pigus automobilis; 20000<x<30000 - prabangus automobilis
@@ -20,15 +21,34 @@ class Naudotojas(val kelioniuSarasas: ListBuffer[Kelione], val pavezimuSarasas: 
    * @param kainosTipas    Kainos skaiciavimo budas.
    * @return Pradeta kelione.
    */
-  def pradetiKelione(priemoneId: Int, isvykimoTaskas: String, kainosTipas: Intervalas.Value): Kelione = {
-    var kelione: Kelione = null
-    if (priemoneId < 10000) if (kainosTipas.equals(KainosTipas.KARANTINO)) kelione = new DviraciuKarantinoKaina(priemoneId, isvykimoTaskas)
-    else kelione = new DviraciuStandartineKaina(priemoneId, isvykimoTaskas)
-    else if (priemoneId < 20000) if (kainosTipas.equals(KainosTipas.KARANTINO)) kelione = new EkonomiskuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas)
-    else kelione = new EkonomiskuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas)
-    else if (priemoneId < 30000) if (kainosTipas.equals(KainosTipas.KARANTINO)) kelione = new PrabangiuAutomobiliuKarantinoKaina(priemoneId, isvykimoTaskas)
-    else kelione = new PrabangiuAutomobiliuStandartineKaina(priemoneId, isvykimoTaskas)
-    else throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.")
+  def pradetiKelione(priemoneId: Int, isvykimoTaskas: String, kainosTipas: KainosTipas.Value): Kelione = {
+    val kelione: Kelione = {
+      if (priemoneId < 10000) {
+        if (kainosTipas == KainosTipas.KARANTINO)
+          new Kelione(priemoneId, isvykimoTaskas) with Dviratis with KarantinoKainosSkaiciavimas
+        else if (kainosTipas == KainosTipas.STANDARTINE)
+          new Kelione(priemoneId, isvykimoTaskas) with Dviratis with StandartinesKainosSkaiciavimas
+        else throw new IllegalArgumentException("Nenustatytas kainos tipas.")
+      }
+
+      else if (priemoneId < 20000) {
+        if (kainosTipas.equals(KainosTipas.KARANTINO))
+          new Kelione(priemoneId, isvykimoTaskas) with EkonomiskasAutomobilis with KarantinoKainosSkaiciavimas
+        else if (kainosTipas == KainosTipas.STANDARTINE)
+          new Kelione(priemoneId, isvykimoTaskas) with EkonomiskasAutomobilis with StandartinesKainosSkaiciavimas
+        else throw new IllegalArgumentException("Nenustatytas kainos tipas.")
+      }
+
+      else if (priemoneId < 30000) {
+        if (kainosTipas.equals(KainosTipas.KARANTINO))
+          new Kelione(priemoneId, isvykimoTaskas) with PrabangusAutomobilis with KarantinoKainosSkaiciavimas
+        else if (kainosTipas == KainosTipas.STANDARTINE)
+          new Kelione(priemoneId, isvykimoTaskas) with PrabangusAutomobilis with StandartinesKainosSkaiciavimas
+        else throw new IllegalArgumentException("Nenustatytas kainos tipas.")
+      }
+      else throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.")
+    }
+
     kelioniuSarasas.addOne(kelione)
     einamaKelione = kelione
     System.out.println("Kelione su priemone id: " + priemoneId + " pradeta.")
@@ -46,7 +66,6 @@ class Naudotojas(val kelioniuSarasas: ListBuffer[Kelione], val pavezimuSarasas: 
   }
 
   private def sumoketi(kaina: BigDecimal): Unit = {
-    System.out.println(kaina)
     sumoketiPerPlatforma(kaina)
     einamaKelione = null
     this.skola = null
@@ -59,16 +78,23 @@ class Naudotojas(val kelioniuSarasas: ListBuffer[Kelione], val pavezimuSarasas: 
    * @return Pradeta pavezimas.
    */
   def pradetiPavezima(vairuotojasId: Int, isvykimoTaskas: String, kainosTipas: KainosTipas.Value): Pavezimas = {
-    var pavezimas: Pavezimas = null
-    if (kainosTipas.equals(KainosTipas.STANDARTINE)) pavezimas = new PavezimasStandartineKaina(vairuotojasId, isvykimoTaskas)
-    else pavezimas = new PavezimasKarantinoKaina(vairuotojasId, isvykimoTaskas)
+    if (!(30000 < vairuotojasId && vairuotojasId < 40000))
+      throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.")
+
+    val pavezimas: Pavezimas =
+      if (kainosTipas == KainosTipas.STANDARTINE)
+        new Pavezimas(vairuotojasId, isvykimoTaskas) with StandartinesKainosSkaiciavimas
+      else if (kainosTipas == KainosTipas.KARANTINO)
+        new Pavezimas(vairuotojasId, isvykimoTaskas) with KarantinoKainosSkaiciavimas
+      else throw new IllegalArgumentException("Nenustatytas kainos tipas.")
+
     pavezimuSarasas.addOne(pavezimas)
     einamasPavezimas = pavezimas
     pavezimas
   }
 
   def uzbaigtiPavezima(atstumas: Float, laikas: Float, atvykimoTaskas: String): Unit = {
-    skola = einamasPavezimas.uzbaigtiPavezima(atstumas, laikas, atvykimoTaskas)
+    skola = einamasPavezimas.uzbaigtiKelione(atstumas, laikas, atvykimoTaskas)
     sumoketi(skola)
     einamasPavezimas = null
     skola = null

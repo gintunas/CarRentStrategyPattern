@@ -12,7 +12,7 @@ public class Main {
         Kelione kelione;
 
         kelione = stasys.pradetiKelione(515, "Aukstieji Paneriai", KainosTipas.STANDARTINE());
-        kelione.getTransportoPriemone().pranestiApieNetiketuma();
+        kelione.pranestiApieNetiketuma();
         stasys.uzbaigtiKelione(3000, 20, "Neries stotele");
 
         System.out.println();
