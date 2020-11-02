@@ -70,7 +70,7 @@ public class Kelione {
     }
 
     public String gautiTransportoPriemonesPavadinima() {
-        return tps.gautiTransportoPriemonesPavadinima();
+        return tps.gautiPavadinima();
     }
 
     public TransportoPasirinkimoStrategija getTransportoPriemone() {

@@ -6,9 +6,9 @@ import com.company.kainosSkaiciavimas.KarantinoKainosSkaiciavimas;
 import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
 import com.company.strategijos.KainosSkaiciavimoStrategija;
 import com.company.strategijos.TransportoPasirinkimoStrategija;
-import com.company.transportoPriemones.KelioneDviraciu;
-import com.company.transportoPriemones.KelioneEkonomiskuAutomobiliu;
-import com.company.transportoPriemones.KelionePrabangiuAutomobiliu;
+import com.company.transportoPriemones.Dviratis;
+import com.company.transportoPriemones.EkonomiskasAutomobilis;
+import com.company.transportoPriemones.PrabangusAutomobilis;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -28,11 +28,11 @@ public class Naudotojas {
     private TransportoPasirinkimoStrategija nustatytiTransportoPasirinkimoStrategija(int priemoneId) throws IllegalArgumentException {
         TransportoPasirinkimoStrategija tps;
         if (priemoneId < 10000) {
-            tps = new KelioneDviraciu(priemoneId);
+            tps = new Dviratis(priemoneId);
         } else if (priemoneId < 20000) {
-            tps = new KelioneEkonomiskuAutomobiliu(priemoneId);
+            tps = new EkonomiskasAutomobilis(priemoneId);
         } else if (priemoneId < 30000) {
-            tps = new KelionePrabangiuAutomobiliu(priemoneId);
+            tps = new PrabangusAutomobilis(priemoneId);
         } else throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.");
         return tps;
     }

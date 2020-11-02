@@ -4,7 +4,7 @@ import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 
 public abstract class KelioneDviraciu extends Kelione {
-    private final String transportoPriemonesPavadinimas = "Rambynas 300";
+    private final String pavadinimas = "Rambynas 300";
     private final Ikainiai ikainiai = new IkainiaiBuilder()
             .setPradineKaina(10)
             .setKilometroKaina(0)
@@ -22,11 +22,11 @@ public abstract class KelioneDviraciu extends Kelione {
 
     @Override
     public String gautiTransportoPriemonesPavadinima() {
-        return transportoPriemonesPavadinimas;
+        return pavadinimas;
     }
 
     @Override
-    public Ikainiai gautiTransportoPriemonesIkainius() {
+    public Ikainiai gautiIkainius() {
         return ikainiai;
     }
 

@@ -13,8 +13,8 @@ import java.util.List;
 public class Naudotojas {
     private final List<Kelione> kelioniuSarasas;
     private final List<Pavezimas> pavezimuSarasas;
-    private Pavezimas einamasPavezimas;
     private Kelione einamaKelione;
+    private Pavezimas einamasPavezimas;
     private BigDecimal skola;
 
     public Naudotojas(List<Kelione> kelioniuSarasas, List<Pavezimas> pavezimuSarasas) {
@@ -74,7 +74,7 @@ public class Naudotojas {
      * @param kainosTipas    Kainos skaiciavimo budas.
      * @return Pradeta pavezimas.
      */
-    public void pradetiPavezima(int vairuotojasId, String isvykimoTaskas, KainosTipas kainosTipas) throws IllegalArgumentException {
+    public Pavezimas pradetiPavezima(int vairuotojasId, String isvykimoTaskas, KainosTipas kainosTipas) throws IllegalArgumentException {
         if (!(30000 < vairuotojasId && vairuotojasId < 40000))
             throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.");
 
@@ -84,6 +84,7 @@ public class Naudotojas {
         else pavezimas = new PavezimasStandartineKaina(vairuotojasId, isvykimoTaskas);
         pavezimuSarasas.add(pavezimas);
         einamasPavezimas = pavezimas;
+        return pavezimas;
     }
 
     public void uzbaigtiPavezima(float atstumas, float laikas, String atvykimoTaskas) {

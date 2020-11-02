@@ -10,7 +10,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Some refactoring to match UML" />
+    <list default="true" id="0b0fc0e2-a201-4c94-b3e5-9fded30c98f1" name="Default Changelist" comment="Some refactoring to match UML">
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Kelione.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Kelione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Naudotojas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Naudotojas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Pavezimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/Pavezimas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/strategijos/TransportoPasirinkimoStrategija.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/strategijos/TransportoPasirinkimoStrategija.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/KelioneDviraciu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/Dviratis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/KelioneEkonomiskuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/EkonomiskasAutomobilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/KelionePrabangiuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StrategyPattern/src/com/company/transportoPriemones/PrabangusAutomobilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Naudotojas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Naudotojas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuStandartineKaina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/EkonomiskuAutomobiliuStandartineKaina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/Kelione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/Kelione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelioneDviraciu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelioneDviraciu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelioneEkonomiskuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelioneEkonomiskuAutomobiliu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/keliones/KelionePrabangiuAutomobiliu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/keliones/KelionePrabangiuAutomobiliu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/pavezimai/Pavezimas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pavezimai/Pavezimas.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

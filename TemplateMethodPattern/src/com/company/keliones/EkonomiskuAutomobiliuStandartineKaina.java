@@ -16,7 +16,7 @@ public class EkonomiskuAutomobiliuStandartineKaina extends KelioneEkonomiskuAuto
     }
 
     @Override
-    public Ikainiai gautiTransportoPriemonesIkainius() {
+    public Ikainiai gautiIkainius() {
         return new IkainiaiBuilder()
                 .setPradineKaina(100)
                 .setKilometroKaina(30)

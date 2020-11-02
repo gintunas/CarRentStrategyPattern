@@ -4,7 +4,7 @@ import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 import com.company.strategijos.TransportoPasirinkimoStrategija;
 
-public class KelioneEkonomiskuAutomobiliu implements TransportoPasirinkimoStrategija {
+public class EkonomiskasAutomobilis implements TransportoPasirinkimoStrategija {
     private final int priemoneId;
     private final String transportoPriemonesPavadinimas = "Rambynas 300";
     private final Ikainiai ikainiai = new IkainiaiBuilder()
@@ -18,7 +18,7 @@ public class KelioneEkonomiskuAutomobiliu implements TransportoPasirinkimoStrate
             .setMenesioKaina(30000)
             .createIkainiai();
 
-    public KelioneEkonomiskuAutomobiliu(int priemoneId) {
+    public EkonomiskasAutomobilis(int priemoneId) {
         this.priemoneId = priemoneId;
     }
 
@@ -28,7 +28,7 @@ public class KelioneEkonomiskuAutomobiliu implements TransportoPasirinkimoStrate
     }
 
     @Override
-    public String gautiTransportoPriemonesPavadinima() {
+    public String gautiPavadinima() {
         return transportoPriemonesPavadinimas;
     }
 

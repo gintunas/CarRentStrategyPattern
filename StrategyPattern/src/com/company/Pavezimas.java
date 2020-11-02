@@ -7,6 +7,7 @@ import com.company.strategijos.KainosSkaiciavimoStrategija;
 import java.math.BigDecimal;
 
 public class Pavezimas {
+    private final KainosSkaiciavimoStrategija kss;
     private final String vairuotojoVardas = "Vėjas Nupūstas";
     private final Ikainiai ikainiai = new IkainiaiBuilder()
             .setPradineKaina(100)
@@ -16,7 +17,6 @@ public class Pavezimas {
 
     private final int vairuotojasId;
     private final String isvykimoTaskas;
-    private final KainosSkaiciavimoStrategija kss;
     private String atvykimoTaskas;
     private double atstumas;
     private double laikas;

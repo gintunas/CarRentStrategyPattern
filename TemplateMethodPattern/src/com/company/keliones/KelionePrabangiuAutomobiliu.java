@@ -26,7 +26,7 @@ public abstract class KelionePrabangiuAutomobiliu extends Kelione {
     }
 
     @Override
-    public Ikainiai gautiTransportoPriemonesIkainius() {
+    public Ikainiai gautiIkainius() {
         return ikainiai;
     }
 

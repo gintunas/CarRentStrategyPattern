@@ -27,7 +27,7 @@ public abstract class Kelione {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiTransportoPriemonesIkainius());
+        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiIkainius());
         sumineKaina = koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
         paliktiTransportoPriemone();
         this.kaina = sumineKaina;
@@ -44,8 +44,8 @@ public abstract class Kelione {
         if (intervalas == null) {
             throw new UnsupportedOperationException("Nenustatytas nuomos intervalas.");
         }
-        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, gautiTransportoPriemonesIkainius());
-        sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(gautiTransportoPriemonesIkainius(), intervalas));
+        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, gautiIkainius());
+        sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(gautiIkainius(), intervalas));
         this.paliktiTransportoPriemone();
         System.out.println("Baigete transporto priemones nuoma. Nuomos laikas: " + intervalas + ".");
         this.kaina = sumineKaina;
@@ -82,13 +82,13 @@ public abstract class Kelione {
         return ilgalaikisIntervalas;
     }
 
-    protected abstract void paliktiTransportoPriemone();
-
     public abstract void pranestiApieNetiketuma();
 
     public abstract String gautiTransportoPriemonesPavadinima();
 
-    public abstract Ikainiai gautiTransportoPriemonesIkainius();
+    public abstract Ikainiai gautiIkainius();
+
+    protected abstract void paliktiTransportoPriemone();
 
     protected abstract BigDecimal apskaiciuotiKelionesKaina(double atstumas, double laikas, Ikainiai ikainiai);
 

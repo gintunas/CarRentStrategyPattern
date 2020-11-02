@@ -43,7 +43,7 @@ public abstract class Pavezimas {
         return sumineKaina;
     }
 
-    public Ikainiai gautiVairuotojoIkainius() {
+    private Ikainiai gautiVairuotojoIkainius() {
         return ikainiai;
     }
 
@@ -75,7 +75,7 @@ public abstract class Pavezimas {
         return kaina;
     }
 
-    protected abstract BigDecimal koreguotiSumineKaina(String isvykimoTaskas, String atvykimoTaskas, BigDecimal sumineKaina);
-
     protected abstract BigDecimal apskaiciuotiKelionesKaina(double atstumas, double laikas, Ikainiai ikainiai);
+
+    protected abstract BigDecimal koreguotiSumineKaina(String isvykimoTaskas, String atvykimoTaskas, BigDecimal sumineKaina);
 }
