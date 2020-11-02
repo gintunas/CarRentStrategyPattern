@@ -6,9 +6,14 @@ import com.company.kainosSkaiciavimas.IkainiaiBuilder;
 import java.math.BigDecimal;
 
 public abstract class Pavezimas {
-    private final Ikainiai ikainiai;
+    private final String vairuotojoVardas = "Vėjas Nupūstas";
+    private final Ikainiai ikainiai = new IkainiaiBuilder()
+            .setPradineKaina(100)
+            .setKilometroKaina(100)
+            .setMinutesKaina(12)
+            .createIkainiai();
+
     private final int vairuotojasId;
-    private final String vairuotojoVardas;
     private final String isvykimoTaskas;
     private String atvykimoTaskas;
     private double atstumas;
@@ -16,22 +21,9 @@ public abstract class Pavezimas {
     private BigDecimal kaina;
 
     public Pavezimas(int vairuotojasId, String isvykimoTaskas) {
-        if (!(30000 < vairuotojasId && vairuotojasId < 40000))
-            throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.");
-
-        this.ikainiai = nustatytiIkainius();
-        this.vairuotojoVardas = "Vėjas Nupūstas";
         this.vairuotojasId = vairuotojasId;
         this.isvykimoTaskas = isvykimoTaskas;
-        System.out.println("Jusu pavezimas pradetas, vairuotojas " + vairuotojoVardas + ".");
-    }
-
-    private Ikainiai nustatytiIkainius() {
-        return new IkainiaiBuilder()
-                .setPradineKaina(100)
-                .setKilometroKaina(100)
-                .setMinutesKaina(12)
-                .createIkainiai();
+        System.out.println("Jusu pavezimas pradetas, vairuotojas " + getVairuotojoVardas() + ".");
     }
 
     /**
@@ -41,9 +33,9 @@ public abstract class Pavezimas {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = this.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
-        sumineKaina = this.koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
-        System.out.println("Ačiū, kad važiavote su " + vairuotojoVardas + ".");
+        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiVairuotojoIkainius());
+        sumineKaina = koreguotiSumineKaina(getIsvykimoTaskas(), atvykimoTaskas, sumineKaina);
+        System.out.println("Ačiū, kad važiavote su " + getVairuotojoVardas() + ".");
         this.kaina = sumineKaina;
         this.atstumas = atstumas;
         this.laikas = laikas;
@@ -51,9 +43,9 @@ public abstract class Pavezimas {
         return sumineKaina;
     }
 
-    protected abstract BigDecimal koreguotiSumineKaina(String isvykimoTaskas, String atvykimoTaskas, BigDecimal sumineKaina);
-
-    protected abstract BigDecimal apskaiciuotiKelionesKaina(double atstumas, double laikas, Ikainiai ikainiai);
+    public Ikainiai gautiVairuotojoIkainius() {
+        return ikainiai;
+    }
 
     public int getVairuotojasId() {
         return vairuotojasId;
@@ -82,4 +74,8 @@ public abstract class Pavezimas {
     public BigDecimal getKaina() {
         return kaina;
     }
+
+    protected abstract BigDecimal koreguotiSumineKaina(String isvykimoTaskas, String atvykimoTaskas, BigDecimal sumineKaina);
+
+    protected abstract BigDecimal apskaiciuotiKelionesKaina(double atstumas, double laikas, Ikainiai ikainiai);
 }

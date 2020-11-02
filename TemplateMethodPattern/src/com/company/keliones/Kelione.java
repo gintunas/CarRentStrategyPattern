@@ -6,10 +6,9 @@ import com.company.kainosSkaiciavimas.Ikainiai;
 import java.math.BigDecimal;
 
 public abstract class Kelione {
-    protected Ikainiai ikainiai;
-    private final String isvykimoTaskas;
     private final int priemoneId;
-    public String transportoPriemonesPavadinimas;
+    private final String isvykimoTaskas;
+
     private String atvykimoTaskas;
     private double atstumas;
     private double laikas;
@@ -28,7 +27,7 @@ public abstract class Kelione {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
+        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiTransportoPriemonesIkainius());
         sumineKaina = koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
         paliktiTransportoPriemone();
         this.kaina = sumineKaina;
@@ -41,12 +40,12 @@ public abstract class Kelione {
     /**
      * @return Keliones kaina.
      */
-    public BigDecimal uzbaigtiNuoma(double atstumas, Intervalas intervalas) throws UnsupportedOperationException{
+    public BigDecimal uzbaigtiNuoma(double atstumas, Intervalas intervalas) throws UnsupportedOperationException {
         if (intervalas == null) {
             throw new UnsupportedOperationException("Nenustatytas nuomos intervalas.");
         }
-        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, ikainiai);
-        sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(ikainiai, intervalas));
+        BigDecimal sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, gautiTransportoPriemonesIkainius());
+        sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(gautiTransportoPriemonesIkainius(), intervalas));
         this.paliktiTransportoPriemone();
         System.out.println("Baigete transporto priemones nuoma. Nuomos laikas: " + intervalas + ".");
         this.kaina = sumineKaina;
@@ -61,14 +60,6 @@ public abstract class Kelione {
 
     public int getPriemoneId() {
         return priemoneId;
-    }
-
-    public String getTransportoPriemonesPavadinimas() {
-        return transportoPriemonesPavadinimas;
-    }
-
-    public Kelione getTransportoPriemone() {
-        return this;
     }
 
     public String getAtvykimoTaskas() {
@@ -91,13 +82,13 @@ public abstract class Kelione {
         return ilgalaikisIntervalas;
     }
 
-    protected abstract String pasirinktiTransportoPriemone(int priemoneId);
-
     protected abstract void paliktiTransportoPriemone();
 
     public abstract void pranestiApieNetiketuma();
 
-    protected abstract Ikainiai gautiTransportoPriemonesIkainius();
+    public abstract String gautiTransportoPriemonesPavadinima();
+
+    public abstract Ikainiai gautiTransportoPriemonesIkainius();
 
     protected abstract BigDecimal apskaiciuotiKelionesKaina(double atstumas, double laikas, Ikainiai ikainiai);
 
