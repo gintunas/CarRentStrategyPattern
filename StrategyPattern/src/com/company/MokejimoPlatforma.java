@@ -6,9 +6,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class MokejimoPlatforma {
-    public static class sumoketi{
+    public static class sumoketi {
         /**
-         *
          * @param kaina kaina nurodyta centais
          */
         public sumoketi(BigDecimal kaina) {
@@ -18,5 +17,4 @@ public class MokejimoPlatforma {
             System.out.println("Uz kelione sumoketa " + eurKainosFormatas.format(kaina));
         }
     }
-
 }

@@ -1,53 +1,27 @@
 package com.company;
 
 import com.company.enums.Intervalas;
-import com.company.enums.KainosTipas;
 import com.company.kainosSkaiciavimas.Ikainiai;
-import com.company.kainosSkaiciavimas.KarantinoKainosSkaiciavimas;
-import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
 import com.company.strategijos.KainosSkaiciavimoStrategija;
 import com.company.strategijos.TransportoPasirinkimoStrategija;
-import com.company.transportoPriemones.Dviratis;
-import com.company.transportoPriemones.PigusAutomobilis;
-import com.company.transportoPriemones.PrabangusAutomobilis;
 
 import java.math.BigDecimal;
 
 public class Kelione {
-    private final KainosSkaiciavimoStrategija kss;
     private final TransportoPasirinkimoStrategija tps;
-    private final Ikainiai ikainiai;
-    private final String isvykimoTaskas;
+    private final KainosSkaiciavimoStrategija kss;
+
     private final int priemoneId;
-    private final String transportoPriemonesPavadinimas;
+    private final String isvykimoTaskas;
     private String atvykimoTaskas;
     private double atstumas;
     private double laikas;
     private BigDecimal kaina;
     private Intervalas ilgalaikisIntervalas;
 
-    public Kelione(int priemoneId, String isvykimoTaskas, KainosTipas kainosTipas) throws IllegalArgumentException, UnsupportedOperationException {
-        if (priemoneId < 10000) {
-            tps = new Dviratis();
-        } else if (priemoneId < 20000) {
-            tps = new PigusAutomobilis();
-        } else if (priemoneId < 30000) {
-            tps = new PrabangusAutomobilis();
-        } else throw new IllegalArgumentException("Nera transporto priemones su tokiu identifikaciniu numeriu.");
-
-        transportoPriemonesPavadinimas = tps.pasirinktiTransportoPriemone(priemoneId);
-
-        if (transportoPriemonesPavadinimas.isEmpty())
-            throw new UnsupportedOperationException("Nepavyko pasirinkti transporto priemones.");
-
-        ikainiai = tps.gautiTransportoPriemonesIkainius();
-
-        if (kainosTipas == KainosTipas.STANDARTINE) {
-            kss = new StandartinesKainosSkaiciavimas();
-        } else if (kainosTipas == KainosTipas.KARANTINO) {
-            kss = new KarantinoKainosSkaiciavimas();
-        } else throw new IllegalArgumentException("Nepavyko nustatyti kainos skaiciavio tipo.");
-
+    public Kelione(int priemoneId, String isvykimoTaskas, TransportoPasirinkimoStrategija tps, KainosSkaiciavimoStrategija kss) throws IllegalArgumentException, UnsupportedOperationException {
+        this.tps = tps;
+        this.kss = kss;
         this.priemoneId = priemoneId;
         this.isvykimoTaskas = isvykimoTaskas;
     }
@@ -59,7 +33,7 @@ public class Kelione {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
+        BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, laikas, tps.gautiIkainius());
         sumineKaina = kss.koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
         tps.paliktiTransportoPriemone();
         this.kaina = sumineKaina;
@@ -72,10 +46,11 @@ public class Kelione {
     /**
      * @return Keliones kaina.
      */
-    public BigDecimal uzbaigtiNuoma(double atstumas, Intervalas intervalas) throws UnsupportedOperationException{
+    public BigDecimal uzbaigtiNuoma(double atstumas, Intervalas intervalas) throws UnsupportedOperationException {
         if (intervalas == null) {
             throw new UnsupportedOperationException("Nenustatytas nuomos intervalas.");
         }
+        Ikainiai ikainiai = tps.gautiIkainius();
         BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, 0, ikainiai);
         sumineKaina = sumineKaina.add(kss.skaiciuotiIlgalaikeKaina(ikainiai, intervalas));
         tps.paliktiTransportoPriemone();
@@ -94,8 +69,8 @@ public class Kelione {
         return priemoneId;
     }
 
-    public String getTransportoPriemonesPavadinimas() {
-        return transportoPriemonesPavadinimas;
+    public String gautiTransportoPriemonesPavadinima() {
+        return tps.gautiTransportoPriemonesPavadinima();
     }
 
     public TransportoPasirinkimoStrategija getTransportoPriemone() {

@@ -79,9 +79,9 @@ public class Naudotojas {
             throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.");
 
         Pavezimas pavezimas;
-        if (kainosTipas.equals(KainosTipas.STANDARTINE))
-            pavezimas = new PavezimasStandartineKaina(vairuotojasId, isvykimoTaskas);
-        else pavezimas = new PavezimasKarantinoKaina(vairuotojasId, isvykimoTaskas);
+        if (kainosTipas.equals(KainosTipas.KARANTINO))
+            pavezimas = new PavezimasKarantinoKaina(vairuotojasId, isvykimoTaskas);
+        else pavezimas = new PavezimasStandartineKaina(vairuotojasId, isvykimoTaskas);
         pavezimuSarasas.add(pavezimas);
         einamasPavezimas = pavezimas;
     }

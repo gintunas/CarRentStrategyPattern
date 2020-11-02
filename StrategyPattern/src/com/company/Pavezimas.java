@@ -1,48 +1,32 @@
 package com.company;
 
-import com.company.enums.KainosTipas;
 import com.company.kainosSkaiciavimas.Ikainiai;
 import com.company.kainosSkaiciavimas.IkainiaiBuilder;
-import com.company.kainosSkaiciavimas.KarantinoKainosSkaiciavimas;
-import com.company.kainosSkaiciavimas.StandartinesKainosSkaiciavimas;
 import com.company.strategijos.KainosSkaiciavimoStrategija;
 
 import java.math.BigDecimal;
 
 public class Pavezimas {
-    private final KainosSkaiciavimoStrategija kss;
-    private final Ikainiai ikainiai;
+    private final String vairuotojoVardas = "Vėjas Nupūstas";
+    private final Ikainiai ikainiai = new IkainiaiBuilder()
+            .setPradineKaina(100)
+            .setKilometroKaina(100)
+            .setMinutesKaina(12)
+            .createIkainiai();
+
     private final int vairuotojasId;
-    private final String vairuotojoVardas;
     private final String isvykimoTaskas;
+    private final KainosSkaiciavimoStrategija kss;
     private String atvykimoTaskas;
     private double atstumas;
     private double laikas;
     private BigDecimal kaina;
 
-    public Pavezimas(int vairuotojasId, String isvykimoTaskas, KainosTipas kainosTipas) {
-        if (!(30000 < vairuotojasId && vairuotojasId < 40000))
-            throw new IllegalArgumentException("Nera vairuotojo su tokiu identifikaciniu numeriu.");
-
-        if (kainosTipas == KainosTipas.STANDARTINE) {
-            kss = new StandartinesKainosSkaiciavimas();
-        } else if (kainosTipas == KainosTipas.KARANTINO) {
-            kss = new KarantinoKainosSkaiciavimas();
-        } else throw new IllegalArgumentException("Nepavyko nustatyti kainos skaiciavimo tipo.");
-
-        this.ikainiai = nustatytiIkainius();
-        this.vairuotojoVardas = "Vėjas Nupūstas";
+    public Pavezimas(int vairuotojasId, String isvykimoTaskas, KainosSkaiciavimoStrategija kss) {
         this.vairuotojasId = vairuotojasId;
         this.isvykimoTaskas = isvykimoTaskas;
-        System.out.println("Jusu pavezimas pradetas, vairuotojas " + vairuotojoVardas + ".");
-    }
-
-    private Ikainiai nustatytiIkainius() {
-        return new IkainiaiBuilder()
-                .setPradineKaina(100)
-                .setKilometroKaina(100)
-                .setMinutesKaina(12)
-                .createIkainiai();
+        this.kss = kss;
+        System.out.println("Jusu pavezimas pradetas, vairuotojas " + getVairuotojoVardas() + ".");
     }
 
     /**
@@ -52,14 +36,18 @@ public class Pavezimas {
         if (atvykimoTaskas.isEmpty()) {
             throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.");
         }
-        BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai);
-        sumineKaina = kss.koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina);
-        System.out.println("Ačiū, kad važiavote su " + vairuotojoVardas + ".");
+        BigDecimal sumineKaina = kss.apskaiciuotiKelionesKaina(atstumas, laikas, gautiVairuotojoIkainius());
+        sumineKaina = kss.koreguotiSumineKaina(getIsvykimoTaskas(), atvykimoTaskas, sumineKaina);
+        System.out.println("Ačiū, kad važiavote su " + getVairuotojoVardas() + ".");
         this.kaina = sumineKaina;
         this.atstumas = atstumas;
         this.laikas = laikas;
         this.atvykimoTaskas = atvykimoTaskas;
         return sumineKaina;
+    }
+
+    public Ikainiai gautiVairuotojoIkainius() {
+        return ikainiai;
     }
 
     public int getVairuotojasId() {

@@ -18,7 +18,7 @@ public class Main {
         System.out.println();
 
         kelione = stasys.pradetiKelione(16450, "Daniliskes", KainosTipas.KARANTINO);
-        System.out.println(kelione.getTransportoPriemonesPavadinimas());
+        System.out.println(kelione.gautiTransportoPriemonesPavadinima());
         stasys.uzbaigtiKelione(20000, Intervalas.PARA);
 
         System.out.println();
