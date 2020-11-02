@@ -8,13 +8,12 @@ import com.company.kainosSkaiciavimas.Ikainiai
 @throws[IllegalArgumentException]
 @throws[UnsupportedOperationException]
 abstract class Kelione
-(val priemoneId: Int, val isvykimoTaskas: String)
-  {
-    var atvykimoTaskas: String = _
-    var atstumas = .0
-    var laikas = .0
-    private var kaina: BigDecimal = _
-    private var ilgalaikisIntervalas: Intervalas.Value = _
+(val priemoneId: Int, val isvykimoTaskas: String) {
+  var atvykimoTaskas: String = _
+  var atstumas = .0
+  var laikas = .0
+  private var kaina: BigDecimal = _
+  private var ilgalaikisIntervalas: Intervalas.Value = _
 
   /**
    * @return Keliones kaina.
@@ -38,7 +37,7 @@ abstract class Kelione
     val ikainiai = gautiTransportoPriemonesIkainius
     var sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, ikainiai)
     sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(ikainiai, intervalas))
-    this.paliktiTransportoPriemone()
+    paliktiTransportoPriemone()
     System.out.println("Baigete transporto priemones nuoma. Nuomos laikas: " + intervalas + ".")
     this.kaina = sumineKaina
     this.ilgalaikisIntervalas = intervalas
@@ -48,15 +47,15 @@ abstract class Kelione
 
   def gautiTransportoPriemonesPavadinima: String
 
-  def paliktiTransportoPriemone()
+  def gautiTransportoPriemonesIkainius: Ikainiai
 
   def pranestiApieNetiketuma()
 
-  def gautiTransportoPriemonesIkainius: Ikainiai
+  protected def paliktiTransportoPriemone()
 
-  def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal
+  protected def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal
 
-  def koreguotiSumineKaina(is: String, i: String, kaina: BigDecimal): BigDecimal
+  protected def koreguotiSumineKaina(is: String, i: String, kaina: BigDecimal): BigDecimal
 
-  def skaiciuotiIlgalaikeKaina(ikainiai: Ikainiai, intervalas: Intervalas.Value): BigDecimal
+  protected def skaiciuotiIlgalaikeKaina(ikainiai: Ikainiai, intervalas: Intervalas.Value): BigDecimal
 }
