@@ -10,7 +10,6 @@ import com.company.kainosSkaiciavimas.Ikainiai
 abstract class Kelione
 (val priemoneId: Int, val isvykimoTaskas: String)
   {
-    var transportoPriemonesPavadinimas: String = _
     var atvykimoTaskas: String = _
     var atstumas = .0
     var laikas = .0
@@ -47,7 +46,7 @@ abstract class Kelione
     sumineKaina
   }
 
-  def getTransportoPriemonesPavadinimas: String = transportoPriemonesPavadinimas
+  def gautiTransportoPriemonesPavadinima: String
 
   def paliktiTransportoPriemone()
 

@@ -4,8 +4,10 @@ import com.company.kainosSkaiciavimas.Ikainiai
 
 @throws[UnsupportedOperationException]
 trait PrabangusAutomobilis extends Kelione {
-  transportoPriemonesPavadinimas = "Lexus RC 300"
+  val transportoPriemonesPavadinimas = "Lexus RC 300"
   val _ikainiai = new Ikainiai(300, 50, 20, 10, 10, 4000, 20000, 400000)
+
+  override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
   override def gautiTransportoPriemonesIkainius: Ikainiai = _ikainiai
 

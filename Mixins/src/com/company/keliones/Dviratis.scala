@@ -3,8 +3,10 @@ package com.company.keliones
 import com.company.kainosSkaiciavimas.Ikainiai
 
 trait Dviratis extends Kelione {
-  transportoPriemonesPavadinimas = "Rambynas 300"
-  val _ikainiai : Ikainiai = new Ikainiai(10, 0, 0, 20, 0, 300, 1500, 3000)
+  val transportoPriemonesPavadinimas = "Rambynas 300"
+  val _ikainiai: Ikainiai = new Ikainiai(10, 0, 0, 20, 0, 300, 1500, 3000)
+
+  override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
   override def gautiTransportoPriemonesIkainius: Ikainiai = _ikainiai
 
