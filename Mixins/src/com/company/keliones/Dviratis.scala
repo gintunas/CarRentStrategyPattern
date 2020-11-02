@@ -8,7 +8,7 @@ trait Dviratis extends Kelione {
 
   override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
-  override def gautiTransportoPriemonesIkainius: Ikainiai = _ikainiai
+  override def gautiIkainius: Ikainiai = _ikainiai
 
   override def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta dviracio Rambynas 300, id: " + priemoneId + " apgadinima.")
 

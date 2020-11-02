@@ -9,7 +9,7 @@ trait EkonomiskasAutomobilis extends Kelione {
 
   override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
-  override def gautiTransportoPriemonesIkainius: Ikainiai = _ikainiai
+  override def gautiIkainius: Ikainiai = _ikainiai
 
   override def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta Honda Civic, id: " + priemoneId + " apgadinima.")
 

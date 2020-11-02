@@ -21,7 +21,7 @@ abstract class Kelione
   @throws[UnsupportedOperationException]
   def uzbaigtiKelione(atstumas: Double, laikas: Double, atvykimoTaskas: String): BigDecimal = {
     if (atvykimoTaskas.isEmpty) throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.")
-    var sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiTransportoPriemonesIkainius)
+    var sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiIkainius)
     sumineKaina = koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina)
     paliktiTransportoPriemone()
     this.kaina = sumineKaina
@@ -34,7 +34,7 @@ abstract class Kelione
   @throws[UnsupportedOperationException]
   def uzbaigtiNuoma(atstumas: Double, intervalas: Intervalas.Value): BigDecimal = {
     if (intervalas == null) throw new UnsupportedOperationException("Nenustatytas nuomos intervalas.")
-    val ikainiai = gautiTransportoPriemonesIkainius
+    val ikainiai = gautiIkainius
     var sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, ikainiai)
     sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(ikainiai, intervalas))
     paliktiTransportoPriemone()
@@ -47,7 +47,7 @@ abstract class Kelione
 
   def gautiTransportoPriemonesPavadinima: String
 
-  def gautiTransportoPriemonesIkainius: Ikainiai
+  def gautiIkainius: Ikainiai
 
   def pranestiApieNetiketuma()
 

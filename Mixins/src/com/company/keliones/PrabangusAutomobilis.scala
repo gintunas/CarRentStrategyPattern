@@ -9,7 +9,7 @@ trait PrabangusAutomobilis extends Kelione {
 
   override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
-  override def gautiTransportoPriemonesIkainius: Ikainiai = _ikainiai
+  override def gautiIkainius: Ikainiai = _ikainiai
 
   override def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta Lexus RC 300, id: " + priemoneId + " apgadinima.")
 
