@@ -2,17 +2,17 @@ package com.company.keliones
 
 import com.company.kainosSkaiciavimas.Ikainiai
 
-trait Dviratis extends Kelione {
+trait Dviratis {
   private val transportoPriemonesPavadinimas = "Rambynas 300"
   val _ikainiai: Ikainiai = new Ikainiai(10, 0, 0, 20, 0, 300, 1500, 3000)
 
-  override def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
+  def gautiTransportoPriemonesPavadinima: String = transportoPriemonesPavadinimas
 
-  override def gautiIkainius: Ikainiai = _ikainiai
+  def gautiIkainius: Ikainiai = _ikainiai
 
-  override def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta dviracio Rambynas 300, id: " + priemoneId + " apgadinima.")
+  def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta dviracio Rambynas 300 apgadinima.")
 
-  protected override def paliktiTransportoPriemone(): Unit = { //palikti priemoneId
+  protected def paliktiTransportoPriemone(priemoneId : Int): Unit = { //palikti priemoneId
     System.out.println("Paliktas Rambynas 300, id: " + priemoneId)
   }
 }

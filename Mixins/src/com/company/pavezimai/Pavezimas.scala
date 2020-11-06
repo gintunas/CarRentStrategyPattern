@@ -15,7 +15,7 @@ abstract class Pavezimas(val vairuotojasId: Int, override val isvykimoTaskas: St
 
   override def pranestiApieNetiketuma(): Unit = System.out.println("Dekojame uz pranesta neatitikima vaziuojant su " + vairuotojoVardas + " .")
 
-  protected override def paliktiTransportoPriemone(): Unit = {
+  protected override def paliktiTransportoPriemone(vairuotojoVardas : Int): Unit = {
     System.out.println("Ačiū, kad važiavote su " + vairuotojoVardas + ". Kviečiame ir toliau naudotis mūsų paslaugomis.")
   }
 

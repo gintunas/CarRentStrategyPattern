@@ -23,7 +23,7 @@ abstract class Kelione
     if (atvykimoTaskas.isEmpty) throw new UnsupportedOperationException("Nenustatytas atvykimo taskas.")
     var sumineKaina = apskaiciuotiKelionesKaina(atstumas, laikas, gautiIkainius)
     sumineKaina = koreguotiSumineKaina(isvykimoTaskas, atvykimoTaskas, sumineKaina)
-    paliktiTransportoPriemone()
+    paliktiTransportoPriemone(priemoneId)
     this.kaina = sumineKaina
     this.atstumas = atstumas
     this.laikas = laikas
@@ -37,7 +37,7 @@ abstract class Kelione
     val ikainiai = gautiIkainius
     var sumineKaina = apskaiciuotiKelionesKaina(atstumas, 0, ikainiai)
     sumineKaina = sumineKaina.add(skaiciuotiIlgalaikeKaina(ikainiai, intervalas))
-    paliktiTransportoPriemone()
+    paliktiTransportoPriemone(priemoneId)
     System.out.println("Baigete transporto priemones nuoma. Nuomos laikas: " + intervalas + ".")
     this.kaina = sumineKaina
     this.ilgalaikisIntervalas = intervalas
@@ -51,7 +51,7 @@ abstract class Kelione
 
   def pranestiApieNetiketuma()
 
-  protected def paliktiTransportoPriemone()
+  protected def paliktiTransportoPriemone(priemoneId : Int)
 
   protected def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal
 
