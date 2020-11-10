@@ -2,7 +2,7 @@ package com.company.keliones
 
 import com.company.kainosSkaiciavimas.Ikainiai
 
-trait EkonomiskasAutomobilis extends Kelione {
+trait EkonomiskasAutomobilis extends TransportoPriemone {
   private val transportoPriemonesPavadinimas = "Honda Civic 5 gen."
   val _ikainiai: Ikainiai = new Ikainiai(100, 30, 14, 6, 5, 1522, 7500, 30000)
 

@@ -2,7 +2,7 @@ package com.company.keliones
 
 import com.company.kainosSkaiciavimas.Ikainiai
 
-trait Dviratis {
+trait Dviratis extends TransportoPriemone {
   private val transportoPriemonesPavadinimas = "Rambynas 300"
   val _ikainiai: Ikainiai = new Ikainiai(10, 0, 0, 20, 0, 300, 1500, 3000)
 

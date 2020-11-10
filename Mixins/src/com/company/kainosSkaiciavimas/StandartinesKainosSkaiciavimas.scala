@@ -4,7 +4,7 @@ import java.math.{BigDecimal, RoundingMode}
 
 import com.company.enums.Intervalas
 
-trait StandartinesKainosSkaiciavimas {
+trait StandartinesKainosSkaiciavimas extends KainosSkaiciavimas {
   def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal = {
     val atstumasDecimal = new BigDecimal(atstumas).divide(new BigDecimal(1000), RoundingMode.HALF_EVEN)
     val laikasDecimal = new BigDecimal(laikas)

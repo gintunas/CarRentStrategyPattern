@@ -4,13 +4,13 @@ import java.math.BigDecimal
 
 import com.company.enums.Intervalas
 
-trait KarantinoKainosSkaiciavimas {
+trait KarantinoKainosSkaiciavimas extends KainosSkaiciavimas {
 
-  object standartinesKainosSkaiciavimas extends StandartinesKainosSkaiciavimas
+  private object ks extends StandartinesKainosSkaiciavimas
 
-  def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal = standartinesKainosSkaiciavimas.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai).multiply(new BigDecimal("0.95"))
+  def apskaiciuotiKelionesKaina(atstumas: Double, laikas: Double, ikainiai: Ikainiai): BigDecimal = ks.apskaiciuotiKelionesKaina(atstumas, laikas, ikainiai).multiply(new BigDecimal("0.95"))
 
-  def koreguotiSumineKaina(is: String, i: String, kaina: BigDecimal): BigDecimal = standartinesKainosSkaiciavimas.koreguotiSumineKaina(is, i, kaina)
+  def koreguotiSumineKaina(is: String, i: String, kaina: BigDecimal): BigDecimal = ks.koreguotiSumineKaina(is, i, kaina)
 
-  def skaiciuotiIlgalaikeKaina(ikainiai: Ikainiai, intervalas: Intervalas.Value): BigDecimal = standartinesKainosSkaiciavimas.skaiciuotiIlgalaikeKaina(ikainiai, intervalas).multiply(new BigDecimal("0.6"))
+  def skaiciuotiIlgalaikeKaina(ikainiai: Ikainiai, intervalas: Intervalas.Value): BigDecimal = ks.skaiciuotiIlgalaikeKaina(ikainiai, intervalas).multiply(new BigDecimal("0.6"))
 }
